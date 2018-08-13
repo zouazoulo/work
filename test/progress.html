@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>进度条</title>
+		<link rel="stylesheet" href="../css/rest.css" />
+	</head>
+	<script type="text/javascript" src="https://pixijs.download/release/pixi.min.js"></script>
+	<body>
+		<button class="btn">点击</button>
+		<script src="../js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			var app = new PIXI.Application(800,600,{backgroundColor : 0x000000});
+			let red = new PIXI.Graphics();
+			let black = new PIXI.Graphics();
+			let width = 100; //变量
+			let step = 30;//增加的经验	
+			
+			document.body.appendChild(app.view);
+			
+			var container = new PIXI.Container();
+			app.stage.addChild(container);
+			
+			container.interactive = true; //选择互动
+			
+			black.beginFill(0xffffff);
+			black.drawRoundedRect(0, 0,width,10,6);
+			black.endFill();
+			container.addChild(black);
+			
+
+			red.beginFill(0xFF3300);
+			red.drawRoundedRect(0,0,width,10,6);
+			red.endFill();
+			container.addChild(red);
+			
+			container.outer = red;//红色 
+			
+			container.x = app.screen.width / 2;
+			container.y = app.screen.height / 2;
+			
+			let i = 0; //原有的经验
+			let u = 0; //增加后的
+			
+			container.outer.width = i;
+			
+			$(".btn").on("click",function(){
+				u  +=  parseInt(step);	
+				add();
+			})
+			function add(){
+				container.outer.width = i;
+				i += 1;
+				if(i <= u ){ 
+					window.requestAnimationFrame(add)
+				}
+				
+				if( u > width ){
+					container.outer.width = 0;
+					u = 0;
+					i = 0;
+				}
+			}
+				 	
+		</script>
+	</body>
+</html>

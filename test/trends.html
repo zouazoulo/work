@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>日志</title>
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' http://api.grhao.com/server/api.do http://61.164.113.168:8090/grh_api/server/api.do; style-src 'self' 'unsafe-inline' 'unsafe-eval'  " > 
+		<meta name="apple-touch-fullscreen" content="no"/>
+		<meta name="viewport" content="width=720,user-scalable=no" />
+		<meta content="telephone=no, address=no" name="format-detection" />
+		<link rel="stylesheet" href="../css/rest.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<style>
+			
+		</style>
+	</head>
+	<script src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+		<body data ="3">
+			<button id="click">点击</button>
+			<div id="trends" class="trends common_wrap" >
+				<div class="common_title">动态<span class="common_close"></span></div>
+				<div class="trends_wrap">
+					<ul class="trends_content">
+				
+					</ul>
+					<div class="load_more">点击加载更多</div>
+				</div>
+			
+		</div>	
+	
+		<div id ="mask" class="common_mask" style="display:none" ></div>
+		<script type="text/javascript">
+			var d = {}
+			 d.data = [
+			 	{p:'浇水成功，植物生长周期缩短12h，农场等级经验+12 ,浇水成功，植物生长周期缩短12h，农场等级经验+12'},
+			 	{p:'浇水成功，植物生长周期缩短12h，农场等级经验+12'},
+			 	{p:'浇水成功，植物生长周期缩短12h'},
+			 	{p:'农场等级经验+12'}
+			 ]
+			pub.event.trends();
+			pub.apiHandle.init($("body").attr("data"),d)
+			
+		</script>
+	</body>
+</html>

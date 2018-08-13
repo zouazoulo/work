@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../css/rest.css" />
+	</head>
+	<script type="text/javascript" src="https://pixijs.download/release/pixi.min.js"></script>
+	<body>
+		<script type="text/javascript">
+			var app = new PIXI.Application(800,600,{backgroundColor : 0xffffff});
+			document.body.appendChild(app.view);
+			//创建一个新的图片 
+			PIXI.loader
+				.add("../img/2.jpg")
+				.load(setup)
+			//旋转
+			function setup(){
+				var person = new PIXI.Sprite(PIXI.loader.resources["../img/2.jpg"].texture);//resources 加载资源
+				person.anchor.set(0.5);			   //图片锚 在中心
+				//图片位置在画布居中
+				person.x = app.screen.width / 2;
+				person.y = app.screen.height / 2;
+				person.interactive = true; 		   //选择互动
+				person.buttonMode = true;		   //选择鼠标形状
+			    person.on('pointerdown',onClick);  // 添加点击事件
+			    
+			    
+			    var spend = 1,isSpend=false;
+			   	function onClick(){
+			   		isSpend = true;
+			   		spend = 10;
+		   			
+			   	};
+			   	app.ticker.add(function(){
+//	   				console.log(person.rotation);
+					if (isSpend) {
+						spend -= 0.05;
+						if (spend < 1) {
+							spend = 1;
+						}
+						person.rotation += 0.01 * spend;
+					}else{
+						person.rotation += 0.01;
+					}
+					isSpend = !isSpend;
+		   		})
+			  
+				//将图片放入画布
+				app.stage.addChild(person);
+			}
+		</script>
+	</body>
+</html>

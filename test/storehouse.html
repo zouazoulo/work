@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>仓库</title>
+		<meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' http://api.grhao.com/server/api.do http://61.164.113.168:8090/grh_api/server/api.do; style-src 'self' 'unsafe-inline' 'unsafe-eval'  " > 
+		<meta name="apple-touch-fullscreen" content="no"/>
+		<meta name="viewport" content="width=720,user-scalable=no" />
+		<meta content="telephone=no, address=no" name="format-detection" />
+		<link rel="stylesheet" href="../css/rest.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+	</head>
+	<script src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/common.js"></script>
+	<body class="animation-fadeIn home-box" style="background:#ffffff" data ="2">
+		<button id="click">点击</button>
+		<div id="storehouse" class="storehouse common_wrap" >
+			<div class="common_title">仓库<span class="common_close"></span></div>
+			<ul class="menu">
+				<li class="active" data = "0" >种子</li>
+				<li data = '1'>道具</li>
+				<li data = '2'>果实</li>
+			</ul>
+			<div  class="wrap">
+				<div class="show show0 add">
+				</div>
+				<div class="show show1">
+				</div>
+				<div class="show show2">
+				</div>
+			</div>
+		</div>
+		<div id ="mask" class="common_mask" style="display:none"></div>
+		<script type="text/javascript">
+		
+			var d = {
+				item :[  
+					   {
+						objects:[
+							{name : '苹果' , num :10, img :"../img/apple.png"},
+							{name : '梨' , num :1, img :"../img/apple.png"},
+							{name : '香蕉' , num :13, img :"../img/apple.png"},
+							{name : '橘子' , num :15, img :"../img/apple.png"}
+						] 
+					   },
+					    {
+						objects:[
+							{name : '化肥' , num :100, img :"../img/apple.png"}
+						] 
+					   },
+					   {
+						objects:[
+							{name : '苹果种子苹果种子苹果种子' , num :5, img :"../img/apple.png"},
+							{name : '妙蛙种子' , num :6, img :"../img/apple.png"},
+							{name : '香蕉种子' , num :18, img :"../img/apple.png"},
+							{name : '皮卡丘' , num :12, img :"../img/apple.png"}
+						] 
+					   }
+				
+				]
+				
+			}
+//			api(0)
+//			function api(index){
+//				
+//				var v = d.item[index].objects;
+//				var html="";
+//				for(var i in v){
+//					html += `<li>
+//							<p>${v[i].name}</p>
+//							<p>x${v[i].num}</p>
+//							<img src="${v[i].img}"/>
+//							<span class="button">立即使用</span>
+//						</li>`
+//					
+//				}
+//				if(index == 0){
+//					$(".show0")[0].innerHTML = html;
+//					
+//				}else if(index == 1){
+//					$(".show1")[0].innerHTML = html;
+//				}else{
+//					$(".show2")[0].innerHTML = html;
+//				}
+//			
+//				var w =	$(".show li").width();
+//				var num = v.length
+//				$(".show").width((parseInt(w) + 60)*num) 
+//				
+//			}
+				pub.apiHandle.init($("body").attr("data"),d)
+				pub.event.storehouse();
+			
+		</script>
+	</body>
+</html>
